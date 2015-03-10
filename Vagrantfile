@@ -10,6 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	# Forward ports to Apache and MySQL
 	config.vm.network "forwarded_port", guest: 80, host: 14100
 	config.vm.network "forwarded_port", guest: 443, host: 15100
+	config.vm.network "forwarded_port", guest: 3106, host: 16100
 
 	config.vm.synced_folder "yourapplication", "/var/www/", id: "vagrant-root",
 	owner: "vagrant",

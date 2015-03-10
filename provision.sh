@@ -41,9 +41,12 @@ EOF
 
 # Configure our other shit
 sudo rm -rf '/var/www/html'
+sudo sed -i -e 's/bind-address/#bind-address/g' /etc/mysql/my.cnf
+sudo mysql -u root -proot -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%'; flush privileges;"
 sudo mysql -u root -proot -e 'CREATE DATABASE yourapplication;'
 
-# Restart Apache
+# Restart Apache and MySQL
+sudo service mysql restart
 sudo service apache2 restart
 
 # Install composer dependencies and seed application
