@@ -42,7 +42,7 @@ EOF
 # Configure our other shit
 sudo rm -rf '/var/www/html'
 sudo sed -i -e 's/bind-address/#bind-address/g' /etc/mysql/my.cnf
-sudo mysql -u root -proot -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%'; flush privileges;"
+sudo mysql -u root -proot -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY 'root';"
 sudo mysql -u root -proot -e 'CREATE DATABASE yourapplication;'
 
 # Restart Apache and MySQL
